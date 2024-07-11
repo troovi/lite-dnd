@@ -16,4 +16,8 @@ jobs:
           node-version: 20.14.0
           registry-url: https://registry.npmjs.org
       - name: publish
-        run: ls
+        run: |
+          npm run build:package
+          cp package.json dnd/dist
+          cd dnd/dist
+          ls
