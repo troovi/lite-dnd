@@ -17,8 +17,9 @@ jobs:
           registry-url: https://registry.npmjs.org
       - name: publish
         run: |
-          npm i
+          npm ci
           npm run build:package
           cp package.json dnd/dist
-          cd dnd/dist
+          cd dnd
+          tar -czvf artifact.tgz dist
           ls
