@@ -27,6 +27,6 @@ jobs:
           ls
 
       - name: Publish to NPM
-        run: 'npm publish artifact.tgz'
+        run: 'npm publish ./dnd/artifact.tgz'
         env:
           NODE_AUTH_TOKEN: ${{ secrets. NPM_TOKEN }}
