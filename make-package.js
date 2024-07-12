@@ -1,5 +1,6 @@
 const rootPackage = require('./package.json')
 const dndPackage = require('./dnd/package.json')
+const { writeFileSync } = require('fs')
 
 delete rootPackage.scripts
 delete rootPackage.workspaces
