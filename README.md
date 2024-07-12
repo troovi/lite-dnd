@@ -2,6 +2,14 @@
 
 This library was inspired by <code>react-beautiful-dnd</code>, but it is more performant and x20 times lighter, and does not rely on heavy additional libraries like redux and react-redux.
 
+<b>Features:</b>
+
+1. Dragging between one or more draggable-list
+2. Mouse, and touch support
+3. Auto scrolling - automatically scroll containers as required during a drag
+4. Custom drag handles - you can drag a whole item by just a part of it
+5. Flexible item sizes - the draggable items can have different heights
+
 ### Usage examples
 
 One list:
