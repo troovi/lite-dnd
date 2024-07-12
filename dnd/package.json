@@ -1,6 +1,9 @@
 {
   "name": "dnd",
   "version": "0.0.0",
+  "main": "dist/dnd.cjs.js",
+  "module": "dist/dnd.esm.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build:types": "tsc --declaration",
     "build:dist": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript --bundleConfigAsCjs"
