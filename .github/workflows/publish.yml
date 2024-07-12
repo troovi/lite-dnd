@@ -23,6 +23,10 @@ jobs:
           npm run build:package
           node make-package.js
           cd dnd
-          cd dist
-          ls
-          cat package.json
+          rm -rf dist/types
+          tar -czvf artifact.tgz dist
+
+      - name: Publish to NPM
+        run: 'npm publish ./dnd/artifact.tgz'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets. NPM_TOKEN }}
