@@ -1,89 +1,34 @@
-// import { nodeResolve } from '@rollup/plugin-node-resolve'
-// import babel from 'rollup-plugin-babel';
-// import strip from 'rollup-plugin-strip';
-// import json from 'rollup-plugin-json';
-// import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 import typescript from '@rollup/plugin-typescript'
+import terser from '@rollup/plugin-terser'
 import strip from '@rollup/plugin-strip'
-import { terser } from 'rollup-plugin-terser'
-
-import tsconfig from './tsconfig.json'
-// import pkg from './package.json';
-
-const input = './src/index.ts'
-const extensions = ['.ts', '.tsx']
-
-// const getBabelOptions = ({ useESModules }) => ({
-//   exclude: 'node_modules/**',
-//   runtimeHelpers: true,
-//   plugins: [['@babel/transform-runtime', { useESModules }]],
-// });
+import { dts } from 'rollup-plugin-dts'
 
 export default [
-  // Universal module definition (UMD) build
-  // - including console.* statements
-  // - conditionally used to match snapshot size
+  // EcmaScript Module (esm) build
   {
-    input,
+    input: './src/index.ts',
     output: {
-      file: 'dist/dnd.js',
-      format: 'umd',
-      name: 'ReactBeautifulDnd',
+      file: 'dist/dnd.esm.js',
+      format: 'esm',
       globals: { react: 'React', 'react-dom': 'ReactDOM' }
     },
-    // Only deep dependency required is React
     external: ['react', 'react-dom'],
-    plugins: [
-      typescript({ module: 'esnext' })
-      // json(),
-      // babel(getBabelOptions({ useESModules: true })),
-      // nodeResolve({ extensions })
-    ]
+    plugins: [typescript({ tsconfig: './tsconfig.json' }), strip()]
   },
-
-  // Minified UMD build
+  // CommonJS (cjs) build
   {
-    input,
+    input: './src/index.ts',
     output: {
-      file: 'dist/dnd.min.js',
-      format: 'umd',
-      name: 'ReactBeautifulDnd',
+      file: 'dist/dnd.cjs.js',
+      format: 'cjs',
       globals: { react: 'React', 'react-dom': 'ReactDOM' }
     },
-    // Only deep dependency required is React
     external: ['react', 'react-dom'],
-    plugins: [
-      // json(),
-      // babel(getBabelOptions({ useESModules: true })),
-      // resolve({ extensions }),
-      typescript({ module: 'esnext' }),
-      strip(),
-      terser()
-    ]
+    plugins: [typescript({ tsconfig: './tsconfig.json' }), strip(), terser()]
+  },
+  {
+    input: 'dist/types/index.d.ts',
+    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+    plugins: [dts()]
   }
-
-  // // CommonJS (cjs) build
-  // // - Keeping console.log statements
-  // // - All external packages are not bundled
-  // {
-  //   input,
-  //   output: { file: pkg.main, format: 'cjs' },
-  //   plugins: [
-  //     json(),
-  //     resolve({ extensions }),
-  //     babel(getBabelOptions({ useESModules: false })),
-  //   ],
-  // },
-
-  // // EcmaScript Module (esm) build
-  // // - Keeping console.log statements
-  // // - All external packages are not bundled
-  // {
-  //   input,
-  //   output: { file: pkg.module, format: 'esm' },
-  //   plugins: [
-  //     json(),
-  //     babel(getBabelOptions({ useESModules: true })),
-  //   ],
-  // },
 ]

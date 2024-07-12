@@ -2,17 +2,21 @@
   "name": "dnd",
   "version": "0.0.0",
   "scripts": {
-    "echo": "echo \"dnd\"",
-    "build": "rollup --config rollup.config.ts --configPlugin typescript"
+    "build:types": "tsc --declaration",
+    "build:dist": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript --bundleConfigAsCjs"
   },
   "dependencies": {
-    "@types/raf-schd": "^4.0.3",
     "raf-schd": "^4.0.3"
   },
   "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-strip": "^3.0.4",
+    "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
-    "rollup-plugin-terser": "^7.0.2"
+    "@types/raf-schd": "^4.0.3",
+    "rollup": "^4.18.1",
+    "rollup-plugin-dts": "^6.1.1"
   }
 }
