@@ -36,7 +36,9 @@ jobs:
         uses: actions/setup-node@v2
 
       - name: Build site
-        run: npm run build:site
+        run: |
+          npm ciHow to run github action only when a package.json file is changedHow to run github action only when a package.json file is changed
+          npm run build:site
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
