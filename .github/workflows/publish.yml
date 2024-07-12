@@ -22,6 +22,7 @@ jobs:
           npm ci
           npm run build:package
           node make-package.js
+          cp README.md ./dnd/dist/README.md
           cd dnd
           rm -rf dist/types
           tar -czvf artifact.tgz dist

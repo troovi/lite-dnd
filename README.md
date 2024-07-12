@@ -48,3 +48,61 @@ export const SimpleList = () => {
   );
 };
 ```
+
+Dragging between two list:
+
+```javascript
+import { useState } from "react";
+import { DragDropContext, DraggableList, DropResult } from "lite-dnd";
+
+export const TwoList = () => {
+  const [state, setState] = useState<Record<string, number[]>>({
+    "list-a": [1, 2, 3, 4, 5, 6, 7, 8],
+    "list-b": [1, 2, 3, 4, 5, 6, 7, 8],
+  });
+
+  const onDragMoved = ({ source, destination }: DropResult) => {
+    const nextState = { ...state };
+
+    const [target] = nextState[source.listId].splice(source.index, 1);
+    nextState[destination.listId].splice(destination.index, 0, target);
+
+    setState(nextState);
+  };
+
+  return (
+    <div className="h-screen w-full flex py-[40px] justify-center">
+      <DragDropContext onDragMoved={onDragMoved}>
+        <div className="flex gap-14">
+          <List listId="list-a" items={state["list-a"]} />
+          <List listId="list-b" items={state["list-b"]} />
+        </div>
+      </DragDropContext>
+    </div>
+  );
+};
+
+const List = ({ items, listId }: { items: number[]; listId: string }) => {
+  return (
+    <div className="w-[250px]">
+      <DraggableList
+        items={items}
+        listId={listId}
+        itemRenderer={({ dragHandleProps, draggableProps }, data) => {
+          return (
+            <div
+              {...draggableProps}
+              {...dragHandleProps}
+              className="mb-12 flex items-center justify-between px-20"
+              style={{ height: "40px", background: "grey" }}
+            >
+              <div>{data}</div>
+            </div>
+          );
+        }}
+      />
+    </div>
+  );
+};
+
+```
