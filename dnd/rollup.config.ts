@@ -13,7 +13,7 @@ export default [
       globals: { react: 'React', 'react-dom': 'ReactDOM' }
     },
     external: ['react', 'react-dom'],
-    plugins: [typescript({ tsconfig: './tsconfig.json' }), strip()]
+    plugins: [typescript({ tsconfig: './tsconfig.json' }), strip(), terser()]
   },
   // CommonJS (cjs) build
   {

@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react'
 
 export const createStyleEl = (content?: string): HTMLStyleElement => {
@@ -27,16 +26,16 @@ const styles = {
     `
   }),
   grabbing: getStyles({
-    selector: `[data-dnd-handle="0"]`,
+    selector: `body, [data-dnd-handle="0"]`,
     styles: `
-      cursor: grabbing;
-      cursor: -webkit-grabbing;
-      user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      overflow-anchor: none;
-    `
+        cursor: grabbing;
+        cursor: -webkit-grabbing;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        overflow-anchor: none;
+      `
   }),
   draggables: getStyles({
     selector: `[data-dnd-draggable="0"]`,
