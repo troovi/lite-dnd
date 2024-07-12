@@ -18,7 +18,6 @@ export const Column = ({ items, listId }: { items: (string | number)[]; listId: 
               className="mb-12 flex items-center justify-between px-20"
               style={{ height: '40px', background: 'grey' }}
               id={`${listId}-item-${data}`}
-              onClick={() => console.log('CLIICK!!!')}
             >
               <div>{data}</div>
               <div {...dragHandleProps}>

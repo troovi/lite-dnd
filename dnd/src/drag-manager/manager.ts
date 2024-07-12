@@ -111,8 +111,6 @@ const createDragManager = ({ scrollable, lists, source, placeholder, onDragMoved
 
       outedItem = dragging
 
-      console.log('OUT', fromListId, outedItem.label)
-
       destination.index = -1
       destination.listId = null
 
