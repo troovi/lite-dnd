@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { DragDropContext, DropResult } from 'dnd/src'
-import { Column } from './Column'
+import { Column } from './lists/SimpleList'
 
-export default () => {
+export const ScrollableList = () => {
   const [items, setItems] = useState(Array.from({ length: 100 }, (_, k) => `${k}`))
 
   const onDragMoved = ({ destination, source }: DropResult) => {
@@ -15,7 +15,7 @@ export default () => {
   }
 
   return (
-    <div className="full center relative h-screen">
+    <div className="full center relative h-full">
       <div className="overflow-y-scroll" style={{ height: '500px' }}>
         <DragDropContext onDragMoved={onDragMoved}>
           <Column listId="id-1" items={items} />

@@ -1,5 +1,5 @@
 import { DraggableList } from 'dnd/src'
-import { DataItem } from './data'
+import { DataItem } from '../data/data'
 import { avatars } from '../../../public/assets'
 
 interface Props {

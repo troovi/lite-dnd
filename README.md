@@ -10,6 +10,8 @@ This library was inspired by <code>react-beautiful-dnd</code>, but it is more pe
 4. Custom drag handles - you can drag a whole item by just a part of it
 5. Flexible item sizes - the draggable items can have different heights
 
+See demos at: https://troovi.github.io/lite-dnd
+
 ### Usage examples
 
 One list:

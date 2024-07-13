@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { DragDropContext } from 'dnd/src/DragContext'
 import { DropResult } from 'dnd/src/drag-manager/manager'
-import { Column } from './Column'
+import { Column } from './lists/SimpleList'
 
 const lists = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R']
 
@@ -23,7 +23,7 @@ const data = lists.reduce<Record<string, string[]>>(
   {}
 )
 
-export const Board = () => {
+export const MultiLists = () => {
   const [state, setState] = useState<Record<string, string[]>>(data)
 
   const onDragMoved = ({ source, destination }: DropResult) => {

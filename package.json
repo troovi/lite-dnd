@@ -1,15 +1,15 @@
 {
   "name": "lite-dnd",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.2-alpha.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/troovi/lite-dnd.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build:package": "npm run build:dist -w=dnd",
     "build:site": "npm run build -w=site"
   },
+  "homepage": "https://troovi.github.io/lite-dnd/",
   "keywords": [
     "react",
     "drag and drop",
