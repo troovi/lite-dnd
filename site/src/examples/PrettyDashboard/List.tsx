@@ -28,7 +28,7 @@ export const List = ({ items, listId }: Props) => {
               className="image rounded-full"
               style={{
                 ...box(42),
-                backgroundImage: `url(./avatars/${encodeURIComponent(avatars[data.i])})`
+                backgroundImage: `url(./assets/${encodeURIComponent(avatars[data.i])})`
               }}
             />
           </div>

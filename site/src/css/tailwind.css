@@ -8,6 +8,11 @@
   }
 
   .full {
-    @apply w-full h-full;
+    @apply h-full w-full;
+  }
+
+  .image {
+    @apply h-full w-full bg-cover bg-center;
+    background-color: #3d3d3d17;
   }
 }

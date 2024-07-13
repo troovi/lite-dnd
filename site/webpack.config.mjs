@@ -50,7 +50,7 @@ export default ({ mode }) => {
     devServer: {
       hot: true,
       port: process.env.PORT,
-      host: process.env.HOST,
+      host: '0.0.0.0',
       open: true,
       historyApiFallback: true,
       client: {

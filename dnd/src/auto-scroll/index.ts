@@ -6,6 +6,7 @@ import { getRect, subtract } from '../vectors'
 import { getScrollChange } from './get-scroll-change'
 import { getScroll } from './get-scroll'
 import { dampenValueByTime } from './dampen-value-by-time'
+import { getScrollableView } from './get-vieport'
 
 type ScheduledFn<T extends (...args: any[]) => void> = T & { cancel(): void }
 
@@ -48,7 +49,8 @@ export class AutoScroll {
       scrollWidth: el.scrollWidth
     })
 
-    const scrollable = getRect(el.getBoundingClientRect())
+    const scrollable = getScrollableView(el)
+
     const scheduleScrollUpdate = rafSchedule(this.changeScroll.bind(this))
 
     this.scrollable = scrollable

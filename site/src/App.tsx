@@ -1,17 +1,14 @@
 // import { Board } from "./Board";
-import { Board } from "./examples/Board";
-// import { ListExample } from "./ListExample";
-// import { PrettyBoard } from "./PrettyDashboard/Dashboard";
+import { Board } from './examples/Board'
+import List from './examples/List'
+import { PrettyBoard } from './examples/PrettyDashboard/Dashboard'
 // import { Test } from "./Test";
 
-
 export const App = () => {
-  // return <PrettyBoard />;
+  // return <PrettyBoard />
   // return <ParentComponent />;
   // return <Test />;
   // return <BoardExample />;
-  // return <ListExample />;
-  // return <Board />;
-
-  return <Board/>
-};
+  return <List />
+  // return <Board />
+}

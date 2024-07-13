@@ -36,8 +36,8 @@ export const Board = () => {
   }
 
   return (
-    <div className="full h-screen">
-      <div className="full overflow-scroll">
+    <div className="h-screen w-full">
+      <div className="h-full w-full overflow-scroll">
         <div className="w-max p-40">
           <DragDropContext onDragMoved={onDragMoved}>
             <div className="flex flex-col gap-14">
